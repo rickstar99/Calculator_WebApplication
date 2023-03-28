@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "HFGHMJXnF/toahDYn2gqyMaq1j9i3Vq6k2n66YwSQOMFBJyPQVO3+W84NKPKnOgk4wwWydXpoE9W3AaZuoI+Nw==",
+  "success": true,
+  "projectFilePath": "C:\\repos\\Calculator\\Calculator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ricky\\.nuget\\packages\\microsoft.typescript.msbuild\\5.0.2\\microsoft.typescript.msbuild.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

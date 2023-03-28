@@ -1,0 +1,101 @@
+﻿@model CalculatorModel
+@{
+    ViewData["Title"] = "Home Page";
+    var Input = false;
+    if (Model.Result != 0)
+    {
+        Model.FirstNumber = Model.Result;
+        Model.Number = Model.Result;
+    }
+}
+
+
+<div class="calculator-container">
+    <div class="row">
+        <input type="number" id="FirstNumber" asp-for="FirstNumber" hidden />
+        <input type="number" id="Number" value="@Model.Number"/>
+        <select asp-for="Operation" hidden>
+            <option value="Addition">+</option>
+            <option value="Subtraction">-</option>
+            <option value="Multiplication">*</option>
+            <option value="Division">/</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <button class="number-button" onclick="addNumber(1)"> 1 </button>
+        <button class="number-button" onclick="addNumber(2)"> 2 </button>
+        <button class="number-button" onclick="addNumber(3)"> 3 </button>
+        <button class="operation-button" onclick="operationPressed('Addition')"> + </button>
+    </div>
+    <div class="row">
+        <button class="number-button" onclick="addNumber(4)"> 4 </button>
+        <button class="number-button" onclick="addNumber(5)"> 5 </button>
+        <button class="number-button" onclick="addNumber(6)"> 6 </button>
+        <button class="operation-button" onclick="operationPressed('Subtraction')"> - </button>
+    </div>
+    <div class="row">
+        <button class="number-button" onclick="addNumber(7)"> 7 </button>
+        <button class="number-button" onclick="addNumber(8)"> 8 </button>
+        <button class="number-button" onclick="addNumber(9)"> 9 </button>
+        <button class="operation-button" onclick="operationPressed('Multiplication')"> * </button>
+    </div>
+
+    <div class="row">
+        <button class="number-button" onclick="addNumber(0)"> 0 </button>
+        <button class="operation-button" onclick="operationPressed('Division')"> / </button>
+        <button class="operation-button" onclick="calculate()"> = </button>
+        <button class="operation-button" onclick="location.href = '/'"> MC </button>
+    </div>
+</div>
+
+    <h2 id="input-value" hidden>@Input.ToString().ToLower()</h2>
+
+    <script>
+
+        function addNumber(x) {
+            var input = (document.getElementById('input-value').textContent == 'true') ? true : false;
+            var number = document.getElementById('Number');
+
+                if (number.value != 0 && input)
+                    number.value += x.toString();
+                else
+                    number.value = x.toString();
+
+            @{ Input = true; }
+
+            document.getElementById('input-value').textContent = @Input.ToString().ToLower();
+        }
+
+    function calculate() {
+        var url = "/Home/Calculate/";
+        var operation = document.getElementById('Operation');
+        var number = document.getElementById('Number');
+
+        url += "?FirstNumber=" + @Model.FirstNumber + "&SecondNumber=" + number.value + "&Operation=" + operation.options[operation.selectedIndex].value.toString();
+
+        location.href = url;
+    }
+
+        function operationPressed(op) {
+
+            var input = (document.getElementById('input-value').textContent == 'true') ? true : false;
+            var url = "/Home/OperationPressed/"
+            var number = document.getElementById('Number').value;
+            var firstNumber = @Model.FirstNumber
+
+                if (!input)
+                    url += `?FirstNumber=${@Model.FirstNumber}&SecondNumber=${@Model.SecondNumber}&Result=${@Model.Result}`;
+        
+                else if (firstNumber == 0)
+                    url += `?FirstNumber=${number}&SecondNumber=0`;
+
+                else if (firstNumber != 0)
+                    url = `/Home/Calculate/?FirstNumber=${@Model.FirstNumber}&SecondNumber=${number}`;
+
+        url += "&Operation=" + op.toString();
+
+        location.href = url;
+        }
+
+    </script>
