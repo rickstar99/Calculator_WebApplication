@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\repos\\Calculator\\Calculator.csproj": {}
+    "C:\\repos\\Calculator_WebApp\\Calculator.csproj": {}
   },
   "projects": {
-    "C:\\repos\\Calculator\\Calculator.csproj": {
+    "C:\\repos\\Calculator_WebApp\\Calculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\repos\\Calculator\\Calculator.csproj",
+        "projectUniqueName": "C:\\repos\\Calculator_WebApp\\Calculator.csproj",
         "projectName": "Calculator",
-        "projectPath": "C:\\repos\\Calculator\\Calculator.csproj",
+        "projectPath": "C:\\repos\\Calculator_WebApp\\Calculator.csproj",
         "packagesPath": "C:\\Users\\ricky\\.nuget\\packages\\",
-        "outputPath": "C:\\repos\\Calculator\\obj\\",
+        "outputPath": "C:\\repos\\Calculator_WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ricky\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,26 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "MediatR.Contracts": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
             "Microsoft.TypeScript.MSBuild": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

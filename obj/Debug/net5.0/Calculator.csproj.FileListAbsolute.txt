@@ -36,4 +36,13 @@ C:\repos\Calculator\obj\Debug\net5.0\ref\Calculator.dll
 C:\repos\Calculator\obj\Debug\net5.0\Calculator.pdb
 C:\repos\Calculator\obj\Debug\net5.0\Calculator.genruntimeconfig.cache
 C:\repos\Calculator\obj\Debug\net5.0\Calculator.csproj.CopyComplete
+C:\repos\Calculator\bin\Debug\net5.0\MediatR.dll
+C:\repos\Calculator\bin\Debug\net5.0\MediatR.Contracts.dll
+C:\repos\Calculator\bin\Debug\net5.0\AutoMapper.dll
 C:\repos\Calculator\obj\Debug\net5.0\Calculator.csproj.AssemblyReference.cache
+C:\repos\Calculator\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\repos\Calculator\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\repos\Calculator\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\repos\Calculator\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\repos\Calculator\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\repos\Calculator\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

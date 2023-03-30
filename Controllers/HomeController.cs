@@ -1,4 +1,7 @@
-﻿using Calculator.Models;
+﻿using AutoMapper;
+using Calculator.Models;
+using Calculator.UseCases.Calculate;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,10 +15,14 @@ namespace Calculator.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IMediator mediator, IMapper mapper)
         {
             _logger = logger;
+            _mapper = mapper;
+            _mediator = mediator;
         }
 
 
@@ -23,30 +30,12 @@ namespace Calculator.Controllers
             =>  View("Index", model);
         
 
-            public IActionResult Calculate(CalculatorModel model)
+            public async Task<IActionResult> Calculate(CalculatorModel model)
         {
-            switch (model.Operation)
-            {
-                case "Addition" :
-                    model.Result = model.FirstNumber + model.SecondNumber;
-                    break;
+            var request = _mapper.Map<CalculatorRequest>(model);
+            var response = await _mediator.Send(request);
 
-                case "Division":
-                    model.Result = model.FirstNumber / model.SecondNumber;
-                    break;
-
-                case "Multiplication":
-                    model.Result = model.FirstNumber * model.SecondNumber;
-                    break;
-
-                case "Subtraction":
-                    model.Result = model.FirstNumber - model.SecondNumber;
-                    break;
-
-                case null:                    
-                    break;
-            }
-
+            model.Result = response.Result;
 
             return View("Index", model);
         }
